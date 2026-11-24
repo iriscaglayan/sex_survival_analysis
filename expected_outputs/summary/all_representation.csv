@@ -1,0 +1,11 @@
+cancer,sex,n_patients,pct_of_cohort,n_deaths,median_age,pct_missing_stage,pct_missing_age,pct_missing_survival
+COAD,female,201,46.0,42,67.0,2.0,0.0,0.0
+COAD,male,236,54.0,53,69.0,3.0,0.0,0.0
+ESCA,female,27,14.7,6,67.0,7.4,0.0,0.0
+ESCA,male,157,85.3,70,60.0,13.4,0.0,0.0
+LUAD,female,273,53.8,96,66.0,1.1,1.5,0.0
+LUAD,male,234,46.2,87,66.0,2.1,2.6,0.0
+STAD,female,145,35.0,57,68.0,2.8,0.7,0.0
+STAD,male,269,65.0,114,66.0,4.5,0.7,0.0
+THCA,female,370,73.1,10,46.0,0.5,0.0,0.0
+THCA,male,136,26.9,6,51.0,0.0,0.0,0.0

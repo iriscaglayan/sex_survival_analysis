@@ -1,0 +1,11 @@
+cancer,sex,n_before,n_after,n_dropped,n_deaths_after
+COAD,female,201,197,4,40
+COAD,male,236,229,7,50
+ESCA,female,27,25,2,5
+ESCA,male,157,136,21,58
+LUAD,female,273,266,7,93
+LUAD,male,234,223,11,85
+STAD,female,145,140,5,54
+STAD,male,269,255,14,106
+THCA,female,370,368,2,10
+THCA,male,136,136,0,6

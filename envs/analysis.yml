@@ -1,0 +1,13 @@
+# Every package the pipeline needs. The Dockerfile builds the image from this list.
+name: sex-survival-analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas=2.2.3
+  - numpy=1.26.4
+  - matplotlib=3.9.2
+  - lifelines=0.29.0     # Cox models, Kaplan-Meier curves
+  - statsmodels=0.14.4   # FDR correction
+  - curl                 # DOWNLOAD step fetches the TCGA tables
+  - procps-ng            # 'ps', used by Nextflow to measure each task

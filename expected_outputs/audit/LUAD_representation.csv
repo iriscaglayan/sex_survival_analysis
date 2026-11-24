@@ -1,0 +1,3 @@
+cancer,sex,n_patients,pct_of_cohort,n_deaths,median_age,pct_missing_stage,pct_missing_age,pct_missing_survival
+LUAD,female,273,53.8,96,66.0,1.1,1.5,0.0
+LUAD,male,234,46.2,87,66.0,2.1,2.6,0.0

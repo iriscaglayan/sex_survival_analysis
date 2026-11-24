@@ -1,0 +1,3 @@
+cancer,sex,n_patients,pct_of_cohort,n_deaths,median_age,pct_missing_stage,pct_missing_age,pct_missing_survival
+STAD,female,145,35.0,57,68.0,2.8,0.7,0.0
+STAD,male,269,65.0,114,66.0,4.5,0.7,0.0

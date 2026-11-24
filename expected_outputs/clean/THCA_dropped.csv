@@ -1,0 +1,3 @@
+cancer,sex,n_before,n_after,n_dropped,n_deaths_after
+THCA,female,370,368,2,10
+THCA,male,136,136,0,6
