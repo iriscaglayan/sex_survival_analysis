@@ -47,7 +47,7 @@ flowchart LR
     X -- hazard ratios --> M
     M --> F["FIGURES<br/>4 plots"]
     C -- clean tables --> F
-
+```
 
 | Stage | Process | What it does | Main output |
 |---|---|---|---|
