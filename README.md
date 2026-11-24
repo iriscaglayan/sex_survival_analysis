@@ -47,7 +47,7 @@ flowchart LR
     X -- hazard ratios --> M
     M --> F["FIGURES<br/>4 plots"]
     C -- clean tables --> F
-```
+
 
 | Stage | Process | What it does | Main output |
 |---|---|---|---|
@@ -60,7 +60,6 @@ flowchart LR
 
 The first four steps run **independently for each cancer**, in parallel. `MERGE_RESULTS` waits for all cancers before combining them.
 
----
 
 ## Design rationale
 
@@ -82,8 +81,6 @@ The first four steps run **independently for each cancer**, in parallel. `MERGE_
 **Why flag models with fewer than 40 deaths.** A common rule of thumb for Cox regression is about 10 events (deaths) per estimated term (Peduzzi et al., 1995). The sex-specific models estimate four terms (age + three stage terms), giving 4 × 10 = 40 deaths. 
 
 The same rule is applied to the pooled sex comparison: sex is one term, so it is flagged if either sex contributes fewer than 10 deaths, because a comparison is only as reliable as its smaller group. The 40-death threshold can be changed with `--min_events`.
-
----
 
 ## Dependencies
 
@@ -110,7 +107,6 @@ Image: [`caglayaniris/sex-survival:0.1.0`](https://hub.docker.com/r/caglayaniris
 | curl | — | Downloading data |
 | procps-ng | — | Lets Nextflow monitor tasks |
 
----
 
 ## Installation and usage
 
@@ -137,7 +133,6 @@ nextflow run main.nf
 ```
 Results are written to `results/`. On the first run, Nextflow downloads the Docker image from Docker Hub automatically; no `docker build` is needed.
 
----
 
 ## Expected outputs
 
@@ -153,7 +148,6 @@ Running the full pipeline should match with the files in `expected_outputs/` **e
 | `results/pipeline_info/` | Timeline of the run (shows cancers running in parallel) |
 | `data/processed/` | Cleaned table per cancer |
 
----
 
 ## Directory structure
 
@@ -188,7 +182,6 @@ Created when the pipeline runs, not provided on GitHub:
 ├── results/                # all outputs
 └── work/                   # Nextflow's working folders
 ```
----
 
 ## Citations
 
