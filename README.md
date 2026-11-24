@@ -12,8 +12,6 @@ This pipeline is designed to investigate the sex distribution and the effect of 
 7. [Directory structure](#directory-structure)
 8. [Citations](#citations)
 
----
-
 ## Background
 
 Women have historically been underrepresented in parts of biomedical research. Statistical and artificial intelligence models learn from data: if a group is a minority, there is less to learn from. This matters especially for survival models, among the most widely used models in cancer research, because they compare groups at the moments when deaths occur. When deaths are sparse, estimates can be unstable and confidence intervals wide, even when the model runs successfully.
@@ -31,7 +29,6 @@ This pipeline asks three questions across five cancer cohorts from The Cancer Ge
 
 The workflow applies the same eligibility rules and audit to every cancer, so representation and the association between sex and survival can be compared across cancer types. These counts describe representation within TCGA; judging underrepresentation relative to who develops each cancer would require a population benchmark.
 
----
 
 ## Pipeline overview
 
