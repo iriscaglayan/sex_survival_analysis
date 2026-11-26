@@ -1,4 +1,6 @@
 # Sex differences in cancer survival: a reproducible Nextflow pipeline
+This pipeline is designed to investigate the sex distribution and the effect of sex on cancer survival, through downloading public TCGA clinical data.
+
 ## Contents
 1. [Background](#background)
 2. [Pipeline overview](#pipeline-overview)
@@ -11,21 +13,20 @@
 
 ## Background
 
-Women have historically been underrepresented in parts of biomedical research. Statistical and artificial intelligence models learn from data: if a group is a minority, there is less to learn from. This matters especially for survival models, among the most widely used models in cancer research, because they compare groups at the moments when deaths occur. When deaths are sparse, estimates can be unstable and confidence intervals wide, even when the model runs successfully.
+Women have historically been underrepresented in parts of biomedical research. Statistical and artificial intelligence models learn from data: if a group is a minority, there is less to learn from. This matters especially for survival models, among the most widely used models in cancer research, because they compare groups at the stages when deaths occur. When deaths are sparse, estimates can be unstable and confidence intervals wide, even when the model runs successfully.
 
 How much we can learn about each group therefore depends both on who is in the dataset and on how many deaths are observed during follow-up.
 
 This pipeline asks three questions across five cancer cohorts from The Cancer Genome Atlas (TCGA):
 
 1. **Who is represented?**
-   Among eligible patients with a survival record, what share is recorded as female or male? How often are key clinical fields missing in each group?
+   Among eligible patients with a survival record, what share is recorded as female or male? 
 2. **Is recorded sex associated with overall survival?**
    Within each cancer, a pooled Cox model estimates the association after adjusting for age and stage.
 3. **How much evidence supports estimates within each sex?**
    The pipeline counts observed deaths in each group and flags female-only and male-only models with few events.
 
-The workflow applies the same eligibility rules and audit to every cancer, so representation and the association between sex and survival can be compared across cancer types. These counts describe representation within TCGA; judging underrepresentation relative to who develops each cancer would require a population benchmark.
-
+The workflow applies the same eligibility rules and audit to every cancer, so representation and the association between sex and survival can be compared across cancer types within TCGA dataset. 
 
 ## Pipeline overview
 
@@ -60,14 +61,12 @@ The first four steps run **independently for each cancer**, in parallel. `MERGE_
 ## Design rationale
 
 **Data:**
-Public, clinical data from The Cancer Genome Atlas (TCGA), downloaded automatically from the UCSC Xena GDC hub.  TCGA is a used open cancer dataset that records sex, age, stage and survival in the same format for every cohort.
+Public, clinical data from The Cancer Genome Atlas (TCGA), downloaded automatically from the UCSC Xena GDC hub. TCGA is records sex, age, stage and survival in the same format for every cohort.
  
 | File | Source URL | Used for |
 |---|---|---|
 | `TCGA-<CODE>.clinical.tsv.gz` | `https://gdc.xenahubs.net/download/TCGA-<CODE>.clinical.tsv.gz` | sex, age, AJCC pathologic stage, sample type |
 | `TCGA-<CODE>.survival.tsv.gz` | `https://gdc.xenahubs.net/download/TCGA-<CODE>.survival.tsv.gz` | overall survival time (days) and vital status |
- 
-Cohorts: STAD (stomach), ESCA (oesophagus), COAD (colon), LUAD (lung adenocarcinoma), THCA (thyroid). 
 
 **Why these five cancers?** These five cancers are chosen to represent different representation distributions after calculating sex representation for each cancer.
 
@@ -78,7 +77,6 @@ Cohorts: STAD (stomach), ESCA (oesophagus), COAD (colon), LUAD (lung adenocarcin
 | Colon adenocarcinoma | COAD | Close to balanced |
 | Lung adenocarcinoma | LUAD | Balanced; the largest number of deaths |
 | Thyroid carcinoma | THCA | The reverse: men are the minority (27%) |
-
 
 **Why a Cox proportional-hazards model.** It is the standard model for time-to-event data. 
     All patients model: estimation of the effect of sex after adjusting for age and stage.
@@ -148,7 +146,6 @@ Results are written to `results/`. On the first run, Nextflow downloads the Dock
 ## Expected outputs
 
 Running the full pipeline should match with the files in `expected_outputs/` **exactly** because the analysis contains no randomness.
-
 
 | Folder | Contents |
 |---|---|
