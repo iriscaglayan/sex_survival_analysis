@@ -60,10 +60,19 @@ flowchart LR
 
 The first four steps run **independently for each cancer**, in parallel. `MERGE_RESULTS` waits for all cancers before combining them.
 
-
 ## Design rationale
 
-**Why these five cancers.** These five cancers are chosen to represent different representation distributions after calculating sex representation for each cancer.
+**Data:**
+Public, clinical data from The Cancer Genome Atlas (TCGA), downloaded automatically from the UCSC Xena GDC hub.  TCGA is a used open cancer dataset that records sex, age, stage and survival in the same format for every cohort.
+ 
+| File | Source URL | Used for |
+|---|---|---|
+| `TCGA-<CODE>.clinical.tsv.gz` | `https://gdc.xenahubs.net/download/TCGA-<CODE>.clinical.tsv.gz` | sex, age, AJCC pathologic stage, sample type |
+| `TCGA-<CODE>.survival.tsv.gz` | `https://gdc.xenahubs.net/download/TCGA-<CODE>.survival.tsv.gz` | overall survival time (days) and vital status |
+ 
+Cohorts: STAD (stomach), ESCA (oesophagus), COAD (colon), LUAD (lung adenocarcinoma), THCA (thyroid). 
+
+**Why these five cancers?** These five cancers are chosen to represent different representation distributions after calculating sex representation for each cancer.
 
 | Cancer | Code | Role |
 |---|---|---|
@@ -113,26 +122,26 @@ Image: [`caglayaniris/sex-survival:0.1.0`](https://hub.docker.com/r/caglayaniris
 ### 1. Install conda and Docker if needed
 - Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and check with `conda --version`.
 - Install [Docker Desktop](https://www.docker.com/products/docker-desktop/), **open it** so it is running, and check with `docker --version`.
-
 ### 2. Install Nextflow (once)
 ```bash
 conda create -n nextflow -c conda-forge -c bioconda nextflow=24.10.0
 conda activate nextflow
 nextflow -version
 ```
-
 ### 3. Get the pipeline
 ```bash
 git clone https://github.com/iriscaglayan/sex_survival_analysis.git
 cd sex_survival_analysis
 ```
-
+### 4. Quick test (2 cancers)
+```bash
+nextflow run main.nf -profile test
+```
 ### 5. Full run (5 cancers)
 ```bash
 nextflow run main.nf
 ```
 Results are written to `results/`. On the first run, Nextflow downloads the Docker image from Docker Hub automatically; no `docker build` is needed.
-
 
 ## Expected outputs
 
@@ -192,4 +201,4 @@ Created when the pipeline runs, not provided on GitHub:
 - **lifelines**: Davidson-Pilon C (2019). lifelines: survival analysis in Python. *Journal of Open Source Software* 4(40):1317.
 - **Events per variable**: Peduzzi P *et al.* (1995). Importance of events per independent variable in proportional hazards regression analysis II. *Journal of Clinical Epidemiology* 48:1503–1510.
 - **FDR**: Benjamini Y, Hochberg Y (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B* 57:289–300.
-
+Claude was used to solve the erros in code and refine the English rules and structure of README file.
