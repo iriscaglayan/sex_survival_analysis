@@ -205,6 +205,7 @@ Created when the pipeline runs, not provided on GitHub:
 - **Events per variable**: Peduzzi P *et al.* (1995). Importance of events per independent variable in proportional hazards regression analysis II. *Journal of Clinical Epidemiology* 48:1503–1510.
 - **FDR**: Benjamini Y, Hochberg Y (1995). Controlling the false discovery rate. *Journal of the Royal Statistical Society B* 57:289–300.
 Claude was used to solve the erros in code and refine the English rules and structure of README file.
+
 **AI DISCLOSURE**:
 -Code: Claude helped draft the Python scripts based on my specifications. I defined the research question, cohort selection, cleaning rules and model design, Nextflow pipeline and code then reviewed, tested and revised the code, and debugged it with Claude's help when errors occurred.
 README: Claude helped edit wording and grammar.
