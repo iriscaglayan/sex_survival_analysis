@@ -1,5 +1,4 @@
 # Sex differences in cancer survival: a reproducible Nextflow pipeline
-
 ## Contents
 1. [Background](#background)
 2. [Pipeline overview](#pipeline-overview)
