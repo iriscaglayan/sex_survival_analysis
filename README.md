@@ -103,7 +103,10 @@ The same rule is applied to the pooled sex comparison: sex is one term, so it is
 
 **Pipeline**
 
-Image: [`caglayaniris/sex-survival:0.1.0`](https://hub.docker.com/r/caglayaniris/sex-survival) (linux/amd64, linux/arm64), built using `envs/Dockerfile` and `envs/analysis.yml`.
+Image: [`caglayaniris/sex-survival:0.1.0`](https://hub.docker.com/r/caglayaniris/sex-survival) 
+- (linux/amd64, linux/arm64), built using `envs/Dockerfile` and `envs/analysis.yml`.
+- Docker image size: 2.53 GB.
+- Analysis runtime: approximately 10 seconds with previously downloaded data.
 
 | Package | Version | Used for |
 |---|---|---|
@@ -146,6 +149,11 @@ Results are written to `results/`. On the first run, Nextflow downloads the Dock
 ## Expected outputs
 
 Running the full pipeline should match with the files in `expected_outputs/` **exactly** because the analysis contains no randomness.
+
+To verify reproducibility, run:
+```
+    diff -r expected_outputs/summary results/summary
+```
 
 | Folder | Contents |
 |---|---|
