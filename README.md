@@ -150,10 +150,6 @@ Results are written to `results/`. On the first run, Nextflow downloads the Dock
 
 Running the full pipeline should match with the files in `expected_outputs/` **exactly** because the analysis contains no randomness.
 
-To verify reproducibility, run:
-```
-    diff -r expected_outputs/summary results/summary
-```
 
 | Folder | Contents |
 |---|---|
@@ -165,7 +161,10 @@ To verify reproducibility, run:
 | `results/pipeline_info/` | Timeline of the run (shows cancers running in parallel) |
 | `data/processed/` | Cleaned table per cancer |
 
-
+To verify reproducibility, you can compare produced figures or run:
+```
+    diff -r expected_outputs/summary results/summary
+```
 ## Directory structure
 
 ```
