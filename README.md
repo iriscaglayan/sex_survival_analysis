@@ -207,5 +207,5 @@ Created when the pipeline runs, not provided on GitHub:
 Claude was used to solve the erros in code and refine the English rules and structure of README file.
 
 **AI DISCLOSURE**:
--Code: Claude helped draft the Python scripts based on my specifications. I defined the research question, cohort selection, cleaning rules and model design, Nextflow pipeline and code then reviewed, tested and revised the code, and debugged it with Claude's help when errors occurred.
-README: Claude helped edit wording and grammar.
+- Code: Claude helped draft the Python scripts based on my specifications. I defined the research question, cohort selection, cleaning rules and model design, Nextflow pipeline and code then reviewed, tested and revised the code, and debugged it with Claude's help when errors occurred.
+- README: Claude helped edit wording and grammar.
