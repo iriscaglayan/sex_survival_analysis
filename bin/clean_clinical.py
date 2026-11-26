@@ -1,29 +1,7 @@
 #!/usr/bin/env python
-"""
-CLEAN_CLINICAL
-Turn the audit's patient table into a model-ready table for one cancer.
-
-Steps:
-  1. group detailed AJCC stages (Stage IA, Stage IIIB, ...) into I, II, III, IV
-  2. convert survival time from days to years
-  3. drop patients missing sex, age, stage or survival (and say how many, per sex)
-  4. sanity checks: stop with a clear error if the cleaned data look wrong
-
-Cancers without AJCC staging (e.g. leukaemia, brain tumours) are handled by
---min-staged: if fewer than this fraction of patients have a stage, stage is
-not required and the Cox model adjusts for age only (stage_group = "unstaged").
-
-Input : <CANCER>_patients.csv from representation_audit.py
-Output: <CANCER>_clean.csv and <CANCER>_dropped.csv (how many were lost, per sex)
-
-Usage:
-  clean_clinical.py --cancer STAD --patients results/audit/STAD_patients.csv \
-      --outdir results/clean
-"""
 import argparse
 import re
 from pathlib import Path
-
 import pandas as pd
 
 
@@ -36,7 +14,6 @@ def group_stage(stage):
 
 
 def sanity_check(clean, cancer):
-    """Stop the pipeline loudly instead of modelling broken data."""
     problems = []
     if clean.empty:
         problems.append("no patients left after cleaning")

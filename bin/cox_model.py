@@ -1,28 +1,6 @@
 #!/usr/bin/env python
-"""
-COX_MODEL
-Does sex predict survival in one cancer, after adjusting for age and stage?
-
-Fits three Cox proportional-hazards models:
-  all    : survival ~ female + age + stage      -> the sex effect (HR for women vs men)
-  female : survival ~ age + stage, women only   -> how well we can model women
-  male   : survival ~ age + stage, men only     -> same for men
-
-Hazard ratio (HR) > 1 means higher risk of death; < 1 means lower risk.
-Age is per 10 years; stage is compared with the lowest stage present (usually I).
-
-A model is flagged when it has fewer than --min-events deaths (default 40,
-roughly 10 deaths per variable for age + 3 stage terms): its estimates are unreliable.
-
-Input : <CANCER>_clean.csv from clean_clinical.py
-Output: <CANCER>_cox.csv (one row per model x term)
-
-Usage:
-  cox_model.py --cancer STAD --clean results/clean/STAD_clean.csv --outdir results/cox
-"""
 import argparse
 from pathlib import Path
-
 import pandas as pd
 from lifelines import CoxPHFitter
 

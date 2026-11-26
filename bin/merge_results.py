@@ -1,10 +1,5 @@
 #!/usr/bin/env python
-"""
-MERGE_RESULTS
-Stack the per-cancer tables into one table each, and pull out the headline:
-the hazard ratio for women vs men in every cancer (sex_effect.csv), with
-p-values corrected for testing many cancers at once (q_fdr, Benjamini-Hochberg).
-"""
+
 import argparse
 from pathlib import Path
 
