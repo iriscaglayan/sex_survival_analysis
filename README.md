@@ -124,7 +124,7 @@ nextflow -version
 ### 3. Get the pipeline
 ```bash
 git clone https://github.com/iriscaglayan/sex_survival_analysis.git
-cd biof501-sex-survival
+cd sex_survival_analysis
 ```
 
 ### 5. Full run (5 cancers)
