@@ -1,7 +1,5 @@
 # Sex differences in cancer survival: a reproducible Nextflow pipeline
 
-This pipeline is designed to investigate the sex distribution and the effect of sex on cancer survival, through downloading public TCGA clinical data, auditing how well each sex is represented, fitting sex-adjusted and sex-specific survival models, and reporting the results as tables and figures.
-
 ## Contents
 1. [Background](#background)
 2. [Pipeline overview](#pipeline-overview)
