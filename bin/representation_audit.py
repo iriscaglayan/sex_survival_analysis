@@ -4,7 +4,7 @@ import argparse
 from pathlib import Path
 
 import matplotlib
-matplotlib.use("Agg")  # no screen needed (works inside Nextflow/Docker)
+matplotlib.use("Agg")  
 import matplotlib.pyplot as plt
 import pandas as pd
 
