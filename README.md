@@ -140,6 +140,8 @@ cd sex_survival_analysis
 ```bash
 nextflow run main.nf -profile test
 ```
+Test results are written to `results_test/`.
+
 ### 5. Full run (5 cancers)
 ```bash
 nextflow run main.nf
